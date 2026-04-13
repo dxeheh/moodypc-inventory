@@ -1,0 +1,14 @@
+/* Optional CSS — referenced from Main.java but not required */
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-background-color: #2c3e50;
+}
+.tab-pane .tab {
+    -fx-background-color: #34495e;
+}
+.tab-pane .tab:selected {
+    -fx-background-color: #2980b9;
+}
+.tab-pane .tab .tab-label {
+    -fx-text-fill: #ecf0f1;
+    -fx-font-size: 13px;
+}
