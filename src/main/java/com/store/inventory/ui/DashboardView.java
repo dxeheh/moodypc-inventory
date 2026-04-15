@@ -43,7 +43,22 @@ public class DashboardView {
         Label userLabel = new Label("👤 " + user.getUsername() + "  |  " + user.getRole().toUpperCase());
         userLabel.setStyle("-fx-text-fill: #bdc3c7; -fx-font-size: 12px;");
 
-        topBar.getChildren().addAll(appTitle, spacer, userLabel);
+        Button signOutBtn = new Button("Sign Out");
+        signOutBtn.setStyle("-fx-background-color: #e74c3c; -fx-text-fill: white; " +
+                "-fx-font-size: 11px; -fx-padding: 5 12 5 12; -fx-background-radius: 4;");
+        signOutBtn.setOnAction(e -> {
+            javafx.stage.Stage stage = (javafx.stage.Stage) bp.getScene().getWindow();
+            LoginView loginView = new LoginView(stage);
+            javafx.scene.Scene scene = new javafx.scene.Scene(loginView.getRoot(), 420, 340);
+            stage.setScene(scene);
+            stage.setTitle("MOODYPC — Inventory System");
+            stage.setResizable(false);
+            stage.centerOnScreen();
+        });
+
+        topBar.getChildren().addAll(appTitle, spacer, userLabel, new javafx.scene.layout.Region() {{
+            setMinWidth(12);
+        }}, signOutBtn);
 
         // --- Tab Pane ---
         TabPane tabPane = new TabPane();
